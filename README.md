@@ -40,29 +40,30 @@ scipy.stats                  # probability plots (probplot)
 
 warnings                     # suppress warning messages
 
- Analysis Objectives
- 
-Recognize variable attributes, classify features, and screen high-impact factors for housing prices based on domain experience.
+Analysis Objectives
+Explore and classify all variables in the housing dataset, and screen out key features that significantly impact house prices based on data characteristics and practical business logic.
 
-Perform univariate analysis on SalePrice to analyze its distribution, skewness and kurtosis characteristics.
+Conduct univariate analysis on the target variable SalePrice, including distribution observation, skewness and kurtosis detection, to understand the basic statistical characteristics of housing prices.
 
-Explore the correlation between housing prices and key numerical/categorical variables via scatter plots and box plots.
+Analyze the correlation between housing prices and core numerical and categorical variables through visual methods such as scatter plots and box plots, and identify potential linear relationships.
 
-Draw correlation heatmaps to identify high-correlation features and multicollinearity problems.
+Generate correlation heatmaps to quantify feature relevance, detect multicollinearity among variables, and provide references for reasonable feature selection.
 
-Clean raw data: remove high-missing features, delete individual missing samples, and eliminate abnormal outliers.
+Perform comprehensive data cleaning, including removing features with excessive missing values, deleting individual missing samples, and eliminating extreme outliers that interfere with analysis results.
 
-Verify four major statistical assumptions: normality, homoscedasticity, linearity, and independent errors.
+Verify four basic statistical assumptions for multivariate analysis: normality, homoscedasticity, linearity and independent error distribution.
 
-Correct skewed data distribution through logarithmic transformation to meet the requirements of multivariate statistical models.
+Optimize data distribution by logarithmic transformation for skewed continuous variables, so that the data can meet the application requirements of traditional statistical models and regression algorithms.
 
+Reasonably optimize special variables such as basement area with zero values, and complete one-hot encoding of categorical features to realize standardized preprocessing of the entire dataset.
+  
 Encode categorical variables into dummy variables to complete standardized data preprocessing.
 
 Create dummy variables – Convert categorical variables into dummy/indicator variables.
 
 Running Instructions
 
-Ensure the train.csv raw data file is placed in the same working directory as the code file.
+Place the raw dataset file train.csv in the same local folder as the project code file.
 
 Install required dependencies in advance
 
