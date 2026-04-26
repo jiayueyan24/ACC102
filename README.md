@@ -1,131 +1,107 @@
-Comprehensive Data Exploration with Python - README
+Comprehensive Data Exploration with Python
 
 Project Introduction
 
-This project conducts a complete and systematic exploratory data analysis (EDA) on the Ames Housing Dataset, following standardized multivariate data analysis principles. The workflow covers problem understanding, univariate analysis, multivariate correlation research, missing value processing, outlier elimination, statistical assumption verification, data distribution transformation, and categorical variable encoding.
+This project performs a complete and systematic exploratory data analysis (EDA) on the Ames Housing Dataset following standard multivariate data analysis principles. The full workflow includes problem comprehension, univariate analysis, multivariate correlation analysis, missing value processing, outlier removal, statistical assumption testing, data distribution correction, and categorical variable encoding.
 
-The core goal is to deeply explore the key factors affecting house sale prices, solve data distribution anomalies, eliminate data quality risks, and standardize the dataset to lay a solid foundation for subsequent regression prediction modeling of housing prices.
+The primary purpose is to deeply explore the key factors influencing house sale prices, resolve abnormal data distribution, eliminate data quality risks, and standardize the dataset. This preprocessing work provides a solid foundation for subsequent housing price regression and predictive modeling.
 
 Dataset
 
 Dataset Name: Ames Housing Dataset (train.csv)
 
-Research Target Variable: SalePrice (house selling price)
+Target Variable: SalePrice (house selling price)
 
-Data Composition: Contains building attributes, spatial information, location features, overall quality, construction year, garage & basement conditions, and other numerical & categorical features.
+Data Content: Contains numerical and categorical features covering building characteristics, living space, location conditions, overall quality, construction year, garage facilities, basement information, and other housing attributes.
 
-Data Characteristics: Existing missing values, extreme outliers, skewed distribution of core variables, multicollinearity among partial features, and mixed numerical/categorical data.
+Data Features: Contains missing values, extreme outliers, highly skewed target distribution, obvious multicollinearity between partial features, and mixed numerical and categorical data.
 
-Features: 81 variables (numerical and categorical) describing various aspects of properties (e.g., OverallQual, GrLivArea, TotalBsmtSF, YearBuilt, garage attributes, etc.).
+Libraries & Dependencies
 
-Source: Kaggle
+This project adopts mainstream Python tools for data analysis and statistical computing:
 
-Libraries Used
+pandas, numpy, matplotlib, seaborn, scipy.stats, sklearn.preprocessing
 
-The following Python libraries are imported and used in the notebook:
+pandas: Data reading, cleaning, merging, and table processing
 
-pandas                       # data manipulation and analysis
+numpy: Numerical calculation and logarithmic transformation
 
-matplotlib.pyplot            # plotting
+matplotlib & seaborn: Data visualization, including histograms, box plots, heatmaps, scatter plots, and normal probability plots
 
-seaborn                      # statistical visualisation (heatmaps, boxplots, pairplots)
+scipy.stats: Normality testing, skewness and kurtosis calculation
 
-numpy                        # numerical operations
-
-scipy.stats.norm             # normal distribution for probability plots
-
-sklearn.preprocessing.StandardScaler  # standardisation for outlier detection
-
-scipy.stats                  # probability plots (probplot)
-
-warnings                     # suppress warning messages
+sklearn.preprocessing: Data standardization and feature scaling
 
 Analysis Objectives
-Explore and classify all variables in the housing dataset, and screen out key features that significantly impact house prices based on data characteristics and practical business logic.
 
-Conduct univariate analysis on the target variable SalePrice, including distribution observation, skewness and kurtosis detection, to understand the basic statistical characteristics of housing prices.
+Identify and classify different types of variables, and screen core features that strongly affect house prices based on domain knowledge and data performance.
 
-Analyze the correlation between housing prices and core numerical and categorical variables through visual methods such as scatter plots and box plots, and identify potential linear relationships.
+Conduct univariate analysis on SalePrice to analyze its overall distribution, skewness, and kurtosis.
 
-Generate correlation heatmaps to quantify feature relevance, detect multicollinearity among variables, and provide references for reasonable feature selection.
+Explore relationships between house prices and critical numerical and categorical variables through scatter plots and box plots.
 
-Perform comprehensive data cleaning, including removing features with excessive missing values, deleting individual missing samples, and eliminating extreme outliers that interfere with analysis results.
+Create correlation heatmaps to evaluate feature relevance, detect multicollinearity, and guide reasonable feature selection.
 
-Verify four basic statistical assumptions for multivariate analysis: normality, homoscedasticity, linearity and independent error distribution.
+Implement systematic data cleaning by removing high-missing features, deleting individual missing records, and eliminating abnormal outliers.
 
-Optimize data distribution by logarithmic transformation for skewed continuous variables, so that the data can meet the application requirements of traditional statistical models and regression algorithms.
+Verify four major statistical assumptions: normality, homoscedasticity, linearity, and non-correlated errors.
 
-Reasonably optimize special variables such as basement area with zero values, and complete one-hot encoding of categorical features to realize standardized preprocessing of the entire dataset.
-  
-Encode categorical variables into dummy variables to complete standardized data preprocessing.
+Correct skewed continuous variables using logarithmic transformation to satisfy the requirements of multivariate statistical models.
 
-Create dummy variables – Convert categorical variables into dummy/indicator variables.
+Process special variables with zero values and convert all categorical variables into dummy variables to complete standardized data preprocessing.
 
 Running Instructions
 
-Place the raw dataset file train.csv in the same local folder as the project code file.
+Place the raw dataset file train.csv in the same folder as the project code file.
 
-Install required dependencies in advance
+Install required dependencies before execution:
 
 pip install pandas numpy matplotlib seaborn scipy scikit-learn
 
-Run the code in order (Jupyter Notebook recommended):
+Run the code step by step in Jupyter Notebook or a Python editor. Execute each code block in order to complete data analysis, visualization, data cleaning, and data transformation.
 
-Execute step-by-step code blocks to load data and view basic information
+All unnecessary warning messages are suppressed, and all visual charts will be automatically displayed after running.
 
-Complete visual analysis, correlation research, missing value & outlier processing
+Core Conclusions
 
-Finish data transformation and categorical variable dummy encoding
+The original SalePrice data presents obvious right skewness and does not conform to the normal distribution. After logarithmic transformation, the distribution becomes approximately normal and meets standard statistical analysis requirements.
 
-All warning prompts are suppressed; all visualization charts will be automatically output and displayed.
+The most influential factors affecting housing prices include overall house quality, above-ground living area, total basement square footage, garage capacity, construction year, and the number of full bathrooms.
 
-Core Analysis Process & Key Conclusions
+Severe multicollinearity exists among partial features, such as garage area and garage car capacity, basement area and first-floor area. Retaining only the more relevant variable can effectively reduce data redundancy.
 
-1. Feature Importance Screening
-   
-High-correlation core features affecting SalePrice: OverallQual, GrLivArea, TotalBsmtSF, GarageCars, YearBuilt, FullBath.
+After data cleaning, all high-missing redundant columns and extreme abnormal samples are removed. The final dataset contains no missing values and maintains high data quality.
 
-Obvious multicollinearity exists: GarageCars & GarageArea, TotalBsmtSF & 1stFlrSF, GrLivArea & TotRmsAbvGrd. Retain only the feature with higher correlation to housing prices.
+Logarithmic transformation effectively solves heteroscedasticity. The corrected data shows stable variance and clearer linear trends between features and house prices.
 
-3. Distribution Characteristics of Target Variable
-   
-Original SalePrice shows right skewness, sharp peak and non-normal distribution.
+A binary indicator for basement existence is reasonably added to handle zero-value basement data, ensuring the integrity and rationality of feature information.
 
-After logarithmic transformation, the distribution conforms to normal distribution, meeting statistical model assumptions.
+All categorical variables are converted into dummy variables. The fully processed dataset can be directly applied to regression analysis, machine learning modeling, and further price prediction tasks.
 
-6. Data Cleaning Result
-   
-Delete columns with missing values exceeding the threshold (e.g., swimming pool quality, alley access, miscellaneous features).
+Benefits for Users & Clients
 
-Remove 2 extreme outliers with abnormal living area to avoid model deviation.
+Clearly understand the core factors of real estate pricing and provide objective data support for house purchasing, selling, and real estate investment decisions.
 
-Delete only 1 single missing sample of electrical equipment to retain complete feature information.
+Offer a fully cleaned and standardized dataset to save time on raw data processing and reduce manual data cleaning costs.
 
-8. Data Transformation Effect
-   
-Logarithmic transformation is applied to skewed continuous variables (SalePrice, GrLivArea).
+Effectively avoid analysis errors and model failures caused by outliers, missing data, skewed distribution, and multicollinearity.
 
-For basement area with zero-value samples, construct a binary feature HasBsmt (with/without basement) + targeted logarithmic transformation to retain feature validity.
+Provide reliable preprocessing results and complete analysis conclusions to support subsequent house price prediction, market evaluation, and data-driven decision making.
 
-After transformation, the data achieves homoscedasticity, eliminating the conical heteroscedasticity of original scatter plots.
+Intuitive visual analysis helps users quickly understand hidden relationships and internal rules among various housing attributes.
 
-10. Final Data Standardization
+Deliver a complete and reusable EDA framework that can be extended to other commodity pricing and real estate data analysis projects.
 
-All categorical variables are converted into dummy variables via one-hot encoding.
+Future Research Directions
 
-The final dataset has no missing values, reasonable outlier control, normal distribution of core variables, and standardized features, which can be directly used for subsequent machine learning and regression modeling.
+Build regression models such as linear regression, Ridge, and Lasso to achieve accurate house price prediction.
 
-Benefits & Help for Users / Clients
+Use ensemble learning algorithms including Random Forest and XGBoost to improve model prediction performance.
 
-Identify key price factorsThis analysis clearly reveals which house features (overall quality, living area, basement size, garage capacity, year built, bathrooms) strongly affect housing prices. It helps clients understand real estate pricing rules and make rational buying, selling or investment decisions.
+Further optimize feature engineering, reduce redundant features, and enhance model generalization ability.
 
-Provide high-quality processed dataThe project systematically cleans raw data by handling missing values, removing outliers, fixing skewed distribution and converting categorical features. Clients can directly use the standardized, complete and reliable dataset for further research without extra data cleaning work.
+References
 
-Avoid analysis and modeling risksIt verifies important statistical assumptions such as normality and homoscedasticity, and detects multicollinearity. This helps clients prevent biased results, invalid models and wrong conclusions caused by poor data quality.
+Hair, J. F., Black, W. C., Babin, B. J., & Anderson, R. E. (2013). Multivariate Data Analysis (7th ed.). Pearson.
 
-Support future price predictionWith complete data preprocessing and feature correlation analysis, this project lays a solid foundation for building regression and machine learning models. Clients can easily carry out house price prediction, market evaluation and value assessment.
-
-Intuitive data understandingVarious visual charts including heatmaps, scatter plots, box plots and distribution graphs present data relationships clearly. Clients can quickly grasp hidden data patterns and internal connections between different housing attributes.
-
-Offer reusable analysis frameworkThe complete EDA process and Python code can be reused. Clients can apply this standardized data exploration workflow to other real estate projects or similar business data analysis tasks to improve work efficiency.
-# ACC102
+Kaggle House Prices competition.
